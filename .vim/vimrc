@@ -28,6 +28,9 @@ call plug#end()
 autocmd vimenter * ++nested colorscheme gruvbox
 set background=dark    " Setting dark mode
 
+" Open NERDTree on startup.
+autocmd VimEnter * NERDTree
+
 " When started as "evim", evim.vim will already have done these settings, bail
 " out.
 if v:progname =~? "evim"
