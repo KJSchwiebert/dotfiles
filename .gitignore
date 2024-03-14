@@ -1,1 +1,2 @@
-# Dummy git ignore for now.
+# Ignore all the temp files:
+*~
