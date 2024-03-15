@@ -18,6 +18,15 @@ set smartcase
 set number relativenumber
 set nu rnu
 
+" Set a couple of nice key bindings
+nnoremap <Enter> o<ESC>
+nnoremap <S-Enter> O<ESC>
+nnoremap <tab> <C-w>w
+inoremap jj <ESC>
+
+" Tabbing
+set autoindent expandtab tabstop=4 shiftwidth=4
+
 " Get pluggins using the vim-plug pluggin manager.
 call plug#begin()
 Plug 'morhetz/gruvbox'
