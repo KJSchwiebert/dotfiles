@@ -18,10 +18,16 @@ set smartcase
 set number relativenumber
 set nu rnu
 
+" Make it so that splitting always is below or to the right.
+set splitbelow
+set splitright
+
 " Set a couple of nice key bindings
 nnoremap <Enter> o<ESC>
 nnoremap <S-Enter> O<ESC>
 nnoremap <tab> <C-w>w
+tnoremap <tab> <C-w>w
+tnoremap nn <C-w>N
 inoremap jj <ESC>
 
 " Tabbing
