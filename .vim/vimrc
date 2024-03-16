@@ -37,10 +37,14 @@ set autoindent expandtab tabstop=4 shiftwidth=4
 call plug#begin()
 Plug 'morhetz/gruvbox'
 Plug 'preservim/nerdtree'
+let g:gruvbox_contrast_dark='soft'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 " Set the colorscheme
 autocmd vimenter * ++nested colorscheme gruvbox
+set termguicolors
 set background=dark    " Setting dark mode
 
 " Open NERDTree on startup.
