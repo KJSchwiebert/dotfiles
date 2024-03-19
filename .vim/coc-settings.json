@@ -1,0 +1,4 @@
+{
+    "semanticTokens.enable": true,
+    "semanticTokens.filetypes": ["c","cpp","cc","h","hpp","cxx"]
+}

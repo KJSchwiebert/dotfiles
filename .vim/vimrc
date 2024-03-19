@@ -10,10 +10,13 @@
 "  for MS-DOS and Win32:  $VIM\_vimrc
 "	    for OpenVMS:  sys$login:.vimrc
 
-" Set case search so that if I type a capital I want case to matter otherwise not.
+" Set case search so that if I type a capital I want case to matter otherwise 
+" not.
 set smartcase
 syntax on
 filetype plugin indent on
+set nowrap
+set colorcolumn=80
 
 " Set hybrid line numbering (absolute line number of current line and relative
 " line numbers for other line.
