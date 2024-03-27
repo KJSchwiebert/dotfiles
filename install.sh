@@ -9,6 +9,10 @@ rm ~/.vim/autoload/plug.vim
 ln ./.vim/autoload/plug.vim ~/.vim/autoload/plug.vim
 vim +PlugInstall +PlugClean +qall
 
+# Get gdb settings.
+rm ~/.gdbinit
+ln ./.gdbinit ~/.gdbinit
+
 # This is required to make sure we get syntax highlighting and stuff for CoC.
 # To setup CoC for cpp you will need to do a few other things including running
 # :CocInstall coc-clangd. You will need clangd 12 or better as well as 

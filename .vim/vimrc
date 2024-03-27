@@ -30,10 +30,9 @@ set splitright
 " Set a couple of nice key bindings
 nnoremap <silent><C-l> :noh<CR>
 nnoremap <CR> o<ESC>
-nnoremap <S-Enter> O<ESC>
 nnoremap <Tab> <C-w>w
 nnoremap <S-Tab> <C-w><C-p>
-tnoremap nn <C-w>N
+tnoremap <C-n> <C-w>N
 inoremap jj <ESC>
 
 " Tabbing
@@ -80,6 +79,9 @@ inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 function! CheckBackspace() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~#
@@ -87,13 +89,18 @@ function! CheckBackspace() abort
 endfunction
 
 " control space to force suggestion.
-noremap <silent><expr> <c-@> coc#refresh()
+nnoremap <silent><expr> <c-@> coc#refresh()
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
+nnoremap <silent> <C-k> <Plug>(coc-diagnostic-prev)
+nnoremap <silent> <C-j> <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent> gd <Plug>(coc-definition)
+nnoremap <silent> gy <Plug>(coc-type-definition)
+nnoremap <silent> gi <Plug>(coc-implementation)
+nnoremap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call ShowDocumentation()<CR>
