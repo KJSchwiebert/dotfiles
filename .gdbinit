@@ -1,3 +1,12 @@
+# Allow us to break while running gdb in MPI for example if we run
+# mpirun -np 1 gdb ./my_program.exe : -np <N> ./my_program.exe
+set breakpoint pending on
+break MPI_Abort
+set breakpoint pending auto
+
+## Below is a pure copy and paste of the deal.II pretty printing as it was in
+# early 2024. It enables nicer printing of a select few deal.II classes.
+
 # ---------------------------------------------------------------------
 #
 # Copyright (C) 2015 - 2022 by the deal.II authors
@@ -27,9 +36,6 @@
 #
 # Authors: Wolfgang Bangerth, 2015, David Wells, 2015 - 2018
 #
-set breakpoint pending on
-break MPI_Abort
-set breakpoint pending auto
 
 set print pretty 1
 
