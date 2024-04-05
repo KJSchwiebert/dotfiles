@@ -27,7 +27,8 @@ set nu rnu
 set splitbelow
 set splitright
 
-" Set a couple of nice key bindings
+" Set a few nice key bindings
+nnoremap Y y$
 nnoremap <silent><C-l> :noh<CR>
 nnoremap <CR> o<ESC>
 nnoremap <Tab> <C-w>w
