@@ -38,7 +38,7 @@ nnoremap <C-d> <C-d>zz
 nnoremap n nzz
 nnoremap N Nzz
 tnoremap <C-n> <C-w>N
-inoremap jj <ESC>
+inoremap jj <ESC>l
 
 " Tabbing
 set autoindent expandtab tabstop=4 shiftwidth=4 smartindent softtabstop=4
