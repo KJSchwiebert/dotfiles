@@ -35,6 +35,8 @@ nnoremap <Tab> <C-w>w
 nnoremap <S-Tab> <C-w><C-p>
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
+nnoremap n nzz
+nnoremap N Nzz
 tnoremap <C-n> <C-w>N
 inoremap jj <ESC>
 
