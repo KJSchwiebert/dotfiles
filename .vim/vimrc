@@ -43,7 +43,7 @@ inoremap jj <ESC>l
 " Tabbing
 set autoindent expandtab tabstop=4 shiftwidth=4 smartindent softtabstop=4
 
-" Get pluggins using the vim-plug pluggin manager.
+" Get plugins using the vim-plug plugin manager.
 call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_default_semantic_highlight_groups = 1
