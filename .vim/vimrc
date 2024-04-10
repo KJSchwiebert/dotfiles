@@ -40,6 +40,9 @@ nnoremap N Nzz
 tnoremap <C-n> <C-w>N
 inoremap jj <ESC>l
 
+" Easy switching between buffers.
+nnoremap gb :ls<CR>:b<space>
+
 " Tabbing
 set autoindent expandtab tabstop=4 shiftwidth=4 smartindent softtabstop=4
 
