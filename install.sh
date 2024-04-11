@@ -3,6 +3,7 @@
 # Assume that you have vim install as well as the dependancies of all packages.
 # For example CoC requires that you have nodejs.
 rm ~/.vim/vimrc
+mkdir ~/.vim
 ln ./.vim/vimrc ~/.vim/vimrc
 mkdir ~/.vim/autoload
 rm ~/.vim/autoload/plug.vim
