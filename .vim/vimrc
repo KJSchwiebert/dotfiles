@@ -40,6 +40,11 @@ nnoremap N Nzz
 tnoremap <C-n> <C-w>N
 inoremap jj <ESC>l
 
+" Spell checking.
+setlocal spell
+set spelllang=en_us
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+
 " Easy switching between buffers.
 nnoremap gb :ls<CR>:b<space>
 
@@ -48,14 +53,31 @@ set autoindent expandtab tabstop=4 shiftwidth=4 smartindent softtabstop=4
 
 " Get plugins using the vim-plug plugin manager.
 call plug#begin()
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_default_semantic_highlight_groups = 1
+    let g:coc_default_semantic_highlight_groups = 1
+
 Plug 'jiangmiao/auto-pairs'
+
 Plug 'morhetz/gruvbox'
+
 Plug 'preservim/nerdtree'
+
 Plug 'vim-airline/vim-airline'
+
 Plug 'vim-airline/vim-airline-themes'
-let g:airline_theme='gruvbox'
+    let g:airline_theme='gruvbox'
+
+Plug 'sirver/ultisnips'
+    let g:UltiSnipsExpandTrigger = '<tab>'
+    let g:UltiSnipsJumpForwardTrigger = '<tab>'
+    let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
+Plug 'lervag/vimtex'
+    let g:tex_flavor='latex'
+    let g:vimtex_view_method='zathura'
+    let g:vimtex_quickfix_mode=0
+
 call plug#end()
 
 " Stuff specific to coc.
