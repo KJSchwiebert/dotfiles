@@ -8,6 +8,6 @@
 7. `cd ~/.vim/plugged/coc.nvim/ && yarn install`.
 8. Launch vim on any file you like.
 9. In vim run `:CocInstall coc-clangd`.
-10. Run `CocCommand clangd.install`.
+10. Run `:CocCommand clangd.install`.
 11. Exit vim.
 12. Run `cd ~/dotfiles && restore .vim/coc-settings.json`.
