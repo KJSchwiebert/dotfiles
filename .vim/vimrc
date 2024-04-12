@@ -41,7 +41,7 @@ tnoremap <C-n> <C-w>N
 inoremap jj <ESC>l
 
 " Spell checking.
-setlocal spell
+" setlocal spell
 set spelllang=en_us
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
@@ -143,10 +143,15 @@ function! ShowDocumentation()
              endif
 endfunction
 
+augroup my_colours
+  autocmd!
+  autocmd ColorScheme gruvbox hi SpellBad cterm=reverse
+augroup END
+
 " Set the colorscheme
 autocmd vimenter * ++nested colorscheme gruvbox
 set termguicolors
-set background=dark    " Setting dark mode
+set background=dark    
 
 " Open NERDTree on startup.
 autocmd VimEnter * NERDTree
