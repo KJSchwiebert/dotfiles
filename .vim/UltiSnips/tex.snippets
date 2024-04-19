@@ -16,12 +16,11 @@ endglobal
 
 
 snippet template "Basic template" b
-\documentclass[a4paper]{article}
+\documentclass[letterpaper]{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
-\usepackage[dutch]{babel}
 \usepackage{amsmath, amssymb}
 
 
@@ -29,17 +28,18 @@ snippet template "Basic template" b
 \usepackage{import}
 \usepackage{xifthen}
 \pdfminorversion=7
-\usepackage{pdfpages}
-\usepackage{transparent}
 \newcommand{\incfig}[1]{%
 	\def\svgwidth{\columnwidth}
 	\import{./figures/}{#1.pdf_tex}
 }
 
-\pdfsuppresswarningpagegroup=1
+% Front matter
+\title{$0}
+\author{${1:Kyle J. Schwiebert}}
+\date{${2:\\today}}
 
 \begin{document}
-	$0
+	$3
 \end{document}
 endsnippet
 
@@ -307,13 +307,8 @@ snippet cb "^3" iA
 endsnippet
 
 context "math()"
-snippet td "to the ... power" iA
-^{$1}$0
-endsnippet
-
-context "math()"
 snippet rd "to the ... power" iA
-^{($1)}$0
+^{$1}$0
 endsnippet
 
 snippet __ "subscript" iA
@@ -337,7 +332,7 @@ snippet >= "geq" iA
 endsnippet
 
 context "math()"
-snippet EE "geq" iA
+snippet EE "thereexists" iA
 \exists 
 endsnippet
 
