@@ -3,6 +3,7 @@
 set breakpoint pending on
 break MPI_Abort
 set breakpoint pending auto
+catch throw
 
 ## Below is a pure copy and paste of the deal.II pretty printing as it was in
 # early 2024. It enables nicer printing of a select few deal.II classes.
