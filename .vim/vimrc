@@ -21,7 +21,6 @@ set colorcolumn=80
 " Set hybrid line numbering (absolute line number of current line and relative
 " line numbers for other line.
 set number relativenumber
-set nu rnu
 
 " Make it so that splitting always is below or to the right.
 set splitbelow
@@ -37,8 +36,16 @@ nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
 nnoremap n nzz
 nnoremap N Nzz
+nnoremap X daw
+nnoremap S ciw
 tnoremap <C-n> <C-w>N
 inoremap jj <ESC>l
+
+" Block comment in cpp.
+xnoremap gc <esc>mp`>a*/<esc>gv<esc>`<i/*<esc>`p
+
+" Block uncomment in cpp.
+xnoremap gC <esc>mp`>h2x<esc>gv<esc>`<2x<esc>`p
 
 " Spell checking.
 set spelllang=en_us
