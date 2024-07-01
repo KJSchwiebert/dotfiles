@@ -42,10 +42,10 @@ tnoremap <C-n> <C-w>N
 inoremap jj <ESC>l
 
 " Block comment in cpp.
-xnoremap gc <esc>mp`>a*/<esc>gv<esc>`<i/*<esc>`p
+xnoremap gc <esc>mp`>a*/<esc>gv<esc>`<_i/*<esc>`p
 
 " Block uncomment in cpp.
-xnoremap gC <esc>mp`>h2x<esc>gv<esc>`<2x<esc>`p
+xnoremap gC <esc>mp`>h2x<esc>gv<esc>`<_2x<esc>`p
 
 " Spell checking.
 set spelllang=en_us
@@ -86,6 +86,8 @@ Plug 'lervag/vimtex'
     let g:tex_flavor='latex'
     let g:vimtex_view_method='zathura'
     let g:vimtex_quickfix_mode=0
+
+Plug 'rhysd/vim-clang-format'
 
 call plug#end()
 
