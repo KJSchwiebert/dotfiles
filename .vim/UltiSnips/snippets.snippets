@@ -1,0 +1,24 @@
+# Snippets for writting snippets hehe.
+priority 0
+snippet snip "No context" bA
+snippet $1 "$2" ${3:wA}
+$4
+`echo endsnippet`$0
+endsnippet
+
+# For use in tex.snippets
+priority 1
+snippet msnip "Latex math context" bA
+context "math()"
+snippet $1 "$2" ${3:wA}
+$4
+`echo endsnippet`$0
+endsnippet
+
+priority 1
+snippet nsnip "Latex outside math context" bA
+context "nomath()"
+snippet $1 "$2" ${3:wA}
+$4
+`echo endsnippet`$0
+endsnippet

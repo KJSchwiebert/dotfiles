@@ -5,6 +5,9 @@ global !p
 def math():
 	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
 
+def nonmath():
+	return vim.eval('vimtex#syntax#in_mathzone()') == '0'
+
 def comment(): 
 	return vim.eval('vimtex#syntax#in_comment()') == '1'
 
@@ -23,34 +26,73 @@ snippet frame "start new slide" bA
 \\end{frame}
 endsnippet
 
-priority 100
+context "nonmath()"
+snippet '\b([b-zB-HJ-Z])(\W)' "single letter wrap in inline math" rwA
+\$`!p snip.rv = match.group(1)`\$`!p snip.rv = match.group(2)`
+endsnippet
+
+priority 101
 context "math()"
-snippet '([^\s$]+)(tilde|bar|hat)' "postfix modifier" rwA
+snippet '([\\\w]+)(tilde|bar|hat)' "postfix modifier" rwA
 \\`!p snip.rv = match.group(2)`{`!p snip.rv = match.group(1)`}
 endsnippet
 
-priority 100
+priority 101
 context "math()"
-snippet '([^\s$]+)(bf)' "postfix modifier" rwA
+snippet '([\\\w]+)bf' "postfix modifier" rwA
 \\mathbf{`!p snip.rv = match.group(1)`}
 endsnippet
 
 priority 100
 context "math()"
-snippet '([\s|$])(tilde|bar|hat)' "postfix modifier" rwA
-`!p snip.rv = match.group(1)`\\`!p snip.rv = match.group(2)`{$1}$0
+snippet '(tilde|bar|hat)' "postfix modifier" rwA
+\\`!p snip.rv = match.group(1)`{$1}$0
 endsnippet
 
 priority 100
 context "math()"
-snippet '([\s|$])bf' "postfix modifier" rwA
-`!p snip.rv = match.group(1)`\\mathbf{$1}$0
+snippet bf "postfix modifier" wA
+\\mathbf{$1}$0
+endsnippet
+
+priority 100
+context "math()"
+snippet norm "norm" iA
+\lVert $1\rVert$0
+endsnippet
+
+priority 200
+context "math()"
+snippet snorm "semi/Euclidian norm" iA
+\lvert $1\rvert$0
+endsnippet
+
+priority 100
+snippet lr| "left| right|" i
+\lvert ${1:${VISUAL}} \rvert$0
+endsnippet
+
+priority 100
+snippet lr|| "left|| right||" i
+\lVert ${1:${VISUAL}} \rVert$0
+endsnippet
+
+priority 0
+context "math()"
+snippet '\b(phi|psi|tau|sigma|mu|nu)' "Easy greek letters" rwA
+\\`!p snip.rv = match.group(1)`
+endsnippet
+
+priority 300
+context "math()"
+snippet lint "integral" wA
+\int_{${1:-\infty}} ${2:${VISUAL}} \,d ${3:x} $0
 endsnippet
 
 # End of snippets added by Kyle Schwiebert.
 # Although some of the below have been modified or deleted.
 
-
+priority 0
 snippet template "Basic template" b
 \documentclass[letterpaper]{article}
 
@@ -71,12 +113,12 @@ snippet template "Basic template" b
 }
 
 % Front matter
-\title{$0}
-\author{${1:Kyle J. Schwiebert}}
-\date{${2:\\today}}
+\title{$1}
+\author{${2:Kyle J. Schwiebert}}
+\date{${3:\\today}}
 
 \begin{document}
-	$3
+	$4
 \end{document}
 endsnippet
 
@@ -268,31 +310,27 @@ endsnippet
 
 context "math()"
 snippet () "left( right)" iA
-\left( ${1:${VISUAL}} \right) $0
+\left( ${1:${VISUAL}} \right)$0
 endsnippet
 
 snippet lr "left( right)" i
-\left( ${1:${VISUAL}} \right) $0
+\left( ${1:${VISUAL}} \right)$0
 endsnippet
 
 snippet lr( "left( right)" i
-\left( ${1:${VISUAL}} \right) $0
-endsnippet
-
-snippet lr| "left| right|" i
-\left| ${1:${VISUAL}} \right| $0
+\left( ${1:${VISUAL}} \right)$0
 endsnippet
 
 snippet lr{ "left\{ right\}" i
-\left\\{ ${1:${VISUAL}} \right\\} $0
+\left\\{ ${1:${VISUAL}} \right\\}$0
 endsnippet
 
 snippet lrb "left\{ right\}" i
-\left\\{ ${1:${VISUAL}} \right\\} $0
+\left\\{ ${1:${VISUAL}} \right\\}$0
 endsnippet
 
 snippet lr[ "left[ right]" i
-\left[ ${1:${VISUAL}} \right] $0
+\left[ ${1:${VISUAL}} \right]$0
 endsnippet
 
 snippet lra "leftangle rightangle" iA
@@ -469,11 +507,6 @@ snippet ** "cdot" iA
 \cdot 
 endsnippet
 
-context "math()"
-snippet norm "norm" iA
-\|$1\|$0
-endsnippet
-
 priority 100
 context "math()"
 snippet '(?<!\\)(sin|cos|arccot|cot|csc|ln|log|exp|star|perp)' "ln" rwA
@@ -483,7 +516,7 @@ endsnippet
 priority 300
 context "math()"
 snippet dint "integral" wA
-\int_{${1:-\infty}}^{${2:\infty}} ${3:${VISUAL}} $0
+\int_{${1:-\infty}}^{${2:\infty}} ${3:${VISUAL}} \,d ${4:x} $0
 endsnippet
 
 priority 200
