@@ -12,6 +12,8 @@
 
 " Set case search so that if I type a capital I want case to matter otherwise 
 " not.
+"
+set ignorecase
 set smartcase
 syntax on
 filetype plugin indent on

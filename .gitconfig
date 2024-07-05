@@ -1,3 +1,6 @@
 [user]
 	name = Kyle Schwiebert
 	email = kjschwie@gmail.com
+
+[core]
+    editor = vim

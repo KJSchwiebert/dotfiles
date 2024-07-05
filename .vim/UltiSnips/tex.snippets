@@ -26,6 +26,12 @@ snippet frame "start new slide" bA
 \\end{frame}
 endsnippet
 
+context "math()"
+snippet td "to the ... power" iA
+^
+endsnippet
+
+
 context "nonmath()"
 snippet '\b([b-zB-HJ-Z])(\W)' "single letter wrap in inline math" rwA
 \$`!p snip.rv = match.group(1)`\$`!p snip.rv = match.group(2)`
@@ -79,7 +85,7 @@ endsnippet
 
 priority 0
 context "math()"
-snippet '\b(phi|psi|tau|sigma|mu|nu)' "Easy greek letters" rwA
+snippet '\b(phi|psi|tau|sigma|mu|nu|eta)' "Easy greek letters" rwA
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
