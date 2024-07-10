@@ -65,7 +65,7 @@ set autoindent expandtab tabstop=4 shiftwidth=4 smartindent softtabstop=4
 " Get plugins using the vim-plug plugin manager.
 call plug#begin()
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'} 
     let g:coc_default_semantic_highlight_groups = 1
 
 Plug 'jiangmiao/auto-pairs'
@@ -85,7 +85,7 @@ Plug 'sirver/ultisnips'
     let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
     let g:UltiSnipsEditSplit = 'vertical'
 
-Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', {'for': 'tex'}
     let g:tex_flavor='latex'
     let g:vimtex_view_method='zathura'
     let g:vimtex_quickfix_mode=0
