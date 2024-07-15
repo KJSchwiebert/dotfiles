@@ -33,7 +33,7 @@ nnoremap Y y$
 nnoremap <silent><C-l> :noh<CR>
 nnoremap <CR> o<ESC>
 nnoremap <Tab> <C-w>w
-nnoremap <S-Tab> <C-w><C-p>
+nnoremap <S-Tab> <C-w>W
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
 nnoremap n nzz
