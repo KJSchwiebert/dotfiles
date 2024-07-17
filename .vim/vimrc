@@ -12,13 +12,15 @@
 
 " Set case search so that if I type a capital I want case to matter otherwise 
 " not.
-"
 set ignorecase
 set smartcase
 syntax on
 filetype plugin indent on
 set nowrap
 set colorcolumn=80
+
+" Some terminals beep all the time for seemingly no reason.
+set belloff=all
 
 " Set hybrid line numbering (absolute line number of current line and relative
 " line numbers for other line.
