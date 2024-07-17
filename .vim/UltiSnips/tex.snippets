@@ -19,8 +19,18 @@ endglobal
 
 # Snippets added by Kyle Schwiebert.
 # Some of these were inspired by the latex suite plugin for Obsidian.md.
+context "math()"
+snippet conc "concentration of a chemical species" wA
+\left[ \ce{$1}\right]$0
+endsnippet
+
+context "math()"
+snippet ceq "colon equals definition" wA
+\coloneqq
+endsnippet
+
 snippet frame "start new slide" bA
-\\begin{frame}{${1:Title}}
+\\begin{frame}{\Large ${1:Title}}
 	\centering
 	$0
 \\end{frame}
@@ -30,7 +40,6 @@ context "math()"
 snippet td "to the ... power" iA
 ^
 endsnippet
-
 
 context "nonmath()"
 snippet '\b([b-zB-HJ-Z])(\W)' "single letter wrap in inline math" rwA
@@ -85,7 +94,7 @@ endsnippet
 
 priority 0
 context "math()"
-snippet '\b(phi|psi|tau|sigma|mu|nu|eta)' "Easy greek letters" rwA
+snippet '(?<!\\)(phi|psi|tau|sigma|mu|nu|eta|rho|xi)' "Easy greek letters" rwA
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
