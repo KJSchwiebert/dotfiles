@@ -20,6 +20,11 @@ endglobal
 # Snippets added by Kyle Schwiebert.
 # Some of these were inspired by the latex suite plugin for Obsidian.md.
 context "math()"
+snippet _rm "roman text subscript" iA
+_{\mathrm{$1}}$0
+endsnippet
+
+context "math()"
 snippet conc "concentration of a chemical species" wA
 \left[ \ce{$1}\right]$0
 endsnippet
@@ -41,9 +46,27 @@ snippet td "to the ... power" iA
 ^
 endsnippet
 
+# We would like to wrap any singleton letter in $$ automatically.
+# Note that a, A, I, s, and t must be skipped.
+# Lower case t is not allowed due to word such as "can't".
+# Lower case s is similarly not allowed due to possessive apostrophes.
+# This saves so many key strokes that it is worth the occasional pain of
+# needing to go back and remove some extra $.
+# For example when typing "d'Alembert".
 context "nonmath()"
-snippet '\b([b-zB-HJ-Z])(\W)' "single letter wrap in inline math" rwA
+snippet '\b([b-ru-zB-HJ-Z])(\W)' "single letter wrap in inline math" rwA
 \$`!p snip.rv = match.group(1)`\$`!p snip.rv = match.group(2)`
+endsnippet
+
+# See the comment above. We handle the special case for t here.
+context "nonmath()"
+snippet !\b(?<!')(s|t)(\W)! "wrap t in math unless apostrophy" rwA
+\$`!p snip.rv = match.group(1)`\$`!p snip.rv = match.group(2)`
+endsnippet
+
+context "math()"
+snippet '([lkjimn])\1' "" irA
+_`!p snip.rv = match.group(1)`
 endsnippet
 
 priority 101
@@ -94,8 +117,13 @@ endsnippet
 
 priority 0
 context "math()"
-snippet '(?<!\\)(phi|psi|tau|sigma|mu|nu|eta|rho|xi)' "Easy greek letters" rwA
+snippet '(?<!\\)(phi|psi|tau|sigma|mu|nu|eta|rho|xi|alpha)' "Easy greek letters" rwA
 \\`!p snip.rv = match.group(1)`
+endsnippet
+
+context "math()"
+snippet eps "Easy epsilon" wA
+\\epsilon
 endsnippet
 
 priority 300
