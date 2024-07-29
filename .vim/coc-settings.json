@@ -1,5 +1,4 @@
 {
     "inlayHint.enable": false,
-    "semanticTokens.enable": true,
-    "semanticTokens.filetypes": ["c","cpp","cc","h","hpp","cxx"]
+    "semanticTokens.enable": true
 }
