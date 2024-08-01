@@ -20,6 +20,11 @@ endglobal
 # Snippets added by Kyle Schwiebert.
 # Some of these were inspired by the latex suite plugin for Obsidian.md.
 context "math()"
+snippet pder "partial derivative" wA
+\\frac{\\partial ${1:f}}{\\partial ${2:t}}$0
+endsnippet
+
+context "math()"
 snippet _rm "roman text subscript" iA
 _{\mathrm{$1}}$0
 endsnippet
@@ -65,13 +70,13 @@ snippet !\b(?<!')(s|t)(\W)! "wrap t in math unless apostrophy" rwA
 endsnippet
 
 context "math()"
-snippet '([lkjimn])\1' "" irA
+snippet '([lkjin])\1' "" irA
 _`!p snip.rv = match.group(1)`
 endsnippet
 
 priority 101
 context "math()"
-snippet '([\\\w]+)(tilde|bar|hat)' "postfix modifier" rwA
+snippet '([\\\w]+)(tilde|bar|hat|dot)' "postfix modifier" rwA
 \\`!p snip.rv = match.group(2)`{`!p snip.rv = match.group(1)`}
 endsnippet
 
@@ -117,13 +122,18 @@ endsnippet
 
 priority 0
 context "math()"
-snippet '(?<!\\)(phi|psi|tau|sigma|mu|nu|eta|rho|xi|alpha)' "Easy greek letters" rwA
+snippet '(?<!\\)(phi|psi|tau|sigma|mu|nu|eta|rho|xi|alpha|omega)' "Easy greek letters" rwA
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
 context "math()"
 snippet eps "Easy epsilon" wA
 \\epsilon
+endsnippet
+
+context "math()"
+snippet gam "Easy gamma" wA
+\\gamma
 endsnippet
 
 priority 300
@@ -629,6 +639,7 @@ snippet cc "subset" Ai
 \subset 
 endsnippet
 
+context "math()"
 snippet notin "not in " iA
 \not\in 
 endsnippet
