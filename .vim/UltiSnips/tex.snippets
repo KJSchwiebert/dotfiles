@@ -51,6 +51,14 @@ snippet td "to the ... power" iA
 ^
 endsnippet
 
+# Environments
+# priority 1000
+# context "env(item)"
+# snippet item "item inside itemize" bA
+# \\item
+# endsnippet
+
+
 # We would like to wrap any singleton letter in $$ automatically.
 # Note that a, A, I, s, and t must be skipped.
 # Lower case t is not allowed due to word such as "can't".
@@ -134,6 +142,13 @@ endsnippet
 context "math()"
 snippet gam "Easy gamma" wA
 \\gamma
+endsnippet
+
+# Theta clashes with eta
+priority 10
+context "math()"
+snippet theta "Easy theta" wA
+\\theta
 endsnippet
 
 priority 300
