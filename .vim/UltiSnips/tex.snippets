@@ -19,6 +19,12 @@ endglobal
 
 # Snippets added by Kyle Schwiebert.
 # Some of these were inspired by the latex suite plugin for Obsidian.md.
+snippet ndm "Numbered equation" wA
+\begin{equation}
+	${1:${VISUAL}}\label{eq:$2}
+\end{equation} $0
+endsnippet
+
 context "math()"
 snippet pder "partial derivative" wA
 \\frac{\\partial ${1:f}}{\\partial ${2:t}}$0
@@ -78,7 +84,7 @@ snippet !\b(?<!')(s|t)(\W)! "wrap t in math unless apostrophy" rwA
 endsnippet
 
 context "math()"
-snippet '([lkjin])\1' "" irA
+snippet '([lkjin])\1' "Easy index for common indicies" irA
 _`!p snip.rv = match.group(1)`
 endsnippet
 
@@ -266,9 +272,9 @@ else:
 endsnippet
 
 snippet dm "Math" wA
-\[
-${1:${VISUAL}}
-.\] $0
+\begin{equation*}
+	${1:${VISUAL}}
+\end{equation*} $0
 endsnippet
 
 snippet ali "Align" bA
