@@ -19,6 +19,10 @@ filetype plugin indent on
 set nowrap
 set colorcolumn=80
 
+" Stop waiting for a key combination after the following number of
+" milliseconds.
+set timeoutlen=300
+
 " Some terminals beep all the time for seemingly no reason.
 set belloff=all
 
