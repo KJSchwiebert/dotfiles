@@ -57,6 +57,11 @@ snippet td "to the ... power" iA
 ^
 endsnippet
 
+context "nonmath()"
+snippet eref "equation ref" wA
+(\\ref{eq:$1})$0
+endsnippet
+
 # Environments
 # priority 1000
 # context "env(item)"
@@ -115,29 +120,42 @@ endsnippet
 priority 100
 context "math()"
 snippet norm "norm" iA
-\lVert $1\rVert$0
+\\left\\lVert $1\\right\\rVert$0
 endsnippet
 
 priority 200
 context "math()"
 snippet snorm "semi/Euclidian norm" iA
-\lvert $1\rvert$0
+\\left\\lvert $1\\right\\rvert$0
 endsnippet
 
 priority 100
 snippet lr| "left| right|" i
-\lvert ${1:${VISUAL}} \rvert$0
+\\left\\lvert ${1:${VISUAL}} \\right\\rvert$0
 endsnippet
 
 priority 100
 snippet lr|| "left|| right||" i
-\lVert ${1:${VISUAL}} \rVert$0
+\\left\\lVert ${1:${VISUAL}} \\right\\rVert$0
 endsnippet
 
 priority 0
 context "math()"
-snippet '(?<!\\)(phi|psi|tau|sigma|mu|nu|eta|rho|xi|alpha|omega)' "Easy greek letters" rwA
+snippet '(?<!\\)(beta|phi|psi|tau|sigma|mu|nu|theta|zeta|rho|xi|alpha|omega)' "Easy greek letters" rwA
 \\`!p snip.rv = match.group(1)`
+endsnippet
+
+priority 0
+context "math()"
+snippet '(?<!\\)(Phi|Psi|Tau|Sigma|Mu|Nu|Theta|Zeta|Rho|Xi|Alpha|Omega)' "Easy greek letters" rwA
+\\`!p snip.rv = match.group(1)`
+endsnippet
+
+# Two lowercase a are needed so that theta, zeta, beta, etc are not all messed
+# up.
+context "math()"
+snippet etaa "Easy eta" wA
+\\eta
 endsnippet
 
 context "math()"
@@ -150,11 +168,37 @@ snippet gam "Easy gamma" wA
 \\gamma
 endsnippet
 
+context "math()"
+snippet Gam "Easy gamma" wA
+\\Gamma
+endsnippet
+
 # Theta clashes with eta
 priority 10
 context "math()"
-snippet theta "Easy theta" wA
+snippet thet "Easy theta" wA
 \\theta
+endsnippet
+
+# theta clashes with eta
+priority 10
+context "math()"
+snippet Thet "Easy theta" wA
+\\theta
+endsnippet
+
+# zeta clashes with eta
+priority 10
+context "math()"
+snippet zet "Easy theta" wA
+\\zeta
+endsnippet
+
+# Theta clashes with eta
+priority 10
+context "math()"
+snippet Zet "Easy theta" wA
+\\Zeta
 endsnippet
 
 priority 300
