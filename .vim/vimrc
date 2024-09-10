@@ -29,7 +29,7 @@ inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 " Stop waiting for a key combination after the following number of
 " milliseconds.
-set timeoutlen=300
+set timeoutlen=500
 
 " Some terminals beep all the time for seemingly no reason.
 set belloff=all
@@ -66,7 +66,7 @@ xnoremap gc <esc>mp`>a*/<esc>gv<esc>`<_i/*<esc>`p
 xnoremap gC <esc>mp`>h2x<esc>gv<esc>`<_2x<esc>`p
 
 " Symantic line splitting and wrapping.
-nnoremap gQQ _mpo<esc>cc<esc>kO<esc>cc<esc>j:s/\. /\.\r/g<cr>vip:norm gqq<cr>`pkdd}dd`p
+nnoremap gQQ _mpo<esc>cc<esc>kO<esc>cc<esc>j:s/\. /\.\r/g<cr>vip:g /./norm! gqq<cr>:noh<cr>`pkdd}ddk$
 
 " Easy switching between buffers.
 nnoremap gb :ls<CR>:b<space>
