@@ -27,7 +27,6 @@ autocmd BufRead,BufNewFile *.md,*.tex,*.txt setlocal textwidth=80 spell
 set spelllang=en_us
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
-
 " Stop waiting for a key combination after the following number of
 " milliseconds.
 set timeoutlen=300
@@ -65,6 +64,9 @@ xnoremap gc <esc>mp`>a*/<esc>gv<esc>`<_i/*<esc>`p
 
 " Block uncomment in cpp.
 xnoremap gC <esc>mp`>h2x<esc>gv<esc>`<_2x<esc>`p
+
+" Symantic line splitting and wrapping.
+nnoremap gQQ _mpo<esc>cc<esc>kO<esc>cc<esc>j:s/\. /\.\r/g<cr>vip:norm gqq<cr>`pkdd}dd`p
 
 " Easy switching between buffers.
 nnoremap gb :ls<CR>:b<space>
