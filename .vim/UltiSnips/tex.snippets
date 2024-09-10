@@ -218,7 +218,10 @@ snippet template "Basic template" b
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
 \usepackage{amsmath, amssymb}
+\usepackage{mathtools}
 \usepackage[margin = 1in]{geometry}
+\usepackage[sorting=none]{biblatex}
+\addbibresource{${1:./bibliograophy.bib}}
 
 
 % figure support
@@ -231,12 +234,12 @@ snippet template "Basic template" b
 }
 
 % Front matter
-\title{$1}
-\author{${2:Kyle J. Schwiebert}}
-\date{${3:\\today}}
+\title{$2}
+\author{${3:Kyle J. Schwiebert}}
+\date{${4:\\today}}
 
 \begin{document}
-	$4
+	$5
 \end{document}
 endsnippet
 
