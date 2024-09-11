@@ -154,6 +154,7 @@ nnoremap <silent><expr> <c-@> coc#refresh()
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
 nmap <silent> <C-k> <Plug>(coc-diagnostic-prev)
 nmap <silent> <C-j> <Plug>(coc-diagnostic-next)
+nmap <silent> <C-f> <Plug>(coc-fix-current)
 
 " GoTo code navigation
 nmap <silent> gd <Plug>(coc-definition)
