@@ -21,7 +21,8 @@ endglobal
 # Some of these were inspired by the latex suite plugin for Obsidian.md.
 snippet ndm "Numbered equation" wA
 \begin{equation}
-	${1:${VISUAL}}\label{eq:$2}
+	${1:${VISUAL}}
+	\label{eq:$2}
 \end{equation} $0
 endsnippet
 
@@ -696,11 +697,6 @@ context "math()"
 snippet set "set" wA
 \\{$1\\} $0
 endsnippet
-
-snippet || "mid" iA
- \mid 
-endsnippet
-
 
 context "math()"
 snippet cc "subset" Ai
