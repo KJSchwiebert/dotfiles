@@ -21,7 +21,7 @@ set colorcolumn=80
 
 " Prose
 " Automatically wrap and spell check if we are writing text and not code.
-autocmd BufRead,BufNewFile *.md,*.tex,*.txt setlocal textwidth=80 spell
+autocmd BufRead,BufNewFile *.md,*.tex setlocal textwidth=80 spell
 
 " Spell checking language and autocorrect.
 set spelllang=en_us
