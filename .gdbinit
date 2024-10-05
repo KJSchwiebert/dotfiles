@@ -1,5 +1,6 @@
 # Allow us to break while running gdb in MPI for example if we run
 # mpirun -np 1 gdb ./my_program.exe : -np <N> ./my_program.exe
+set debuginfo enabled on
 set breakpoint pending on
 break MPI_Abort
 set breakpoint pending auto
