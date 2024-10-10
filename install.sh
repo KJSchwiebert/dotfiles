@@ -10,6 +10,11 @@ rm ~/.vim/UltiSnips
 ln -s ~/dotfiles/.vim/UltiSnips ~/.vim/UltiSnips
 rm ~/.vim/autoload/plug.vim
 ln -s ~/dotfiles/.vim/autoload/plug.vim ~/.vim/autoload/plug.vim
+
+# Make a folder which will house vim temp files.
+mkdir -p ~/.vimtmp
+
+# Get pluggins
 vim +PlugInstall +PlugClean +qall
 
 # Get gdb settings.
@@ -31,3 +36,4 @@ ln -s ~/dotfiles/.bashrc ~/.bashrc
 # google the commands.
 rm ~/.vim/coc-settings.json
 ln -s ~/dotfiles/.vim/coc-settings.json ~/.vim/coc-settings.json
+

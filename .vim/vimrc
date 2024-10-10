@@ -9,7 +9,7 @@
 "	      for Amiga:  s:.vimrc
 "  for MS-DOS and Win32:  $VIM\_vimrc
 "	    for OpenVMS:  sys$login:.vimrc
-
+"
 " Set case search so that if I type a capital I want case to matter otherwise 
 " not.
 set ignorecase
@@ -18,6 +18,10 @@ syntax on
 filetype plugin indent on
 set nowrap
 set colorcolumn=80
+
+" Save temp files outside the current working directory if possible.
+set directory=$HOME/.vimtmp//,./
+set backupdir=$HOME/.vimtmp//,./
 
 " Prose
 " Automatically wrap and spell check if we are writing text and not code.
