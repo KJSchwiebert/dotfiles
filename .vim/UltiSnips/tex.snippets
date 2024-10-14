@@ -27,6 +27,13 @@ snippet ndm "Numbered equation" wA
 endsnippet
 
 context "math()"
+snippet mder "material derivative" wA
+\\frac{\\partial ${1:f}}{\\partial ${2:t}}
++ (\\mathbf{u} \\cdot \\nabla${3:_{\\mathbf{x}}}) $1
+$0
+endsnippet
+
+context "math()"
 snippet pder "partial derivative" wA
 \\frac{\\partial ${1:f}}{\\partial ${2:t}}$0
 endsnippet
@@ -46,6 +53,12 @@ snippet ceq "colon equals definition" wA
 \coloneqq
 endsnippet
 
+context "math()"
+snippet td "to the ... power" iA
+^
+endsnippet
+
+# Non math snips.
 snippet frame "start new slide" bA
 \\begin{frame}{\Large ${1:Title}}
 	\centering
@@ -53,14 +66,21 @@ snippet frame "start new slide" bA
 \\end{frame}
 endsnippet
 
-context "math()"
-snippet td "to the ... power" iA
-^
-endsnippet
-
 context "nonmath()"
 snippet eref "equation ref" wA
 (\\ref{eq:$1})$0
+endsnippet
+
+context "nonmath()"
+snippet sect "new section" bA
+\\section{$1}\\label{sec:${2:`!p snip.rv = t[1].partition(' ')[0].lower()`}}
+$0
+endsnippet
+
+context "nonmath()"
+snippet subsect "new subsection" bA
+\\subsection{$1}\\label{sbsec:${2:`!p snip.rv = t[1].partition(' ')[0].lower()`}}
+$0
 endsnippet
 
 # Environments
