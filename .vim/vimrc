@@ -188,7 +188,7 @@ set termguicolors
 set background=dark    
 
 " Open NERDTree on startup.
-autocmd VimEnter * NERDTree
+" autocmd VimEnter * NERDTree
 
 " When started as "evim", evim.vim will already have done these settings, bail
 " out.

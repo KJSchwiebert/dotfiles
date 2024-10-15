@@ -161,14 +161,48 @@ snippet lr|| "left|| right||" i
 endsnippet
 
 priority 0
+context "nonmath()"
+snippet '(?<!\\)(pi|beta|phi|psi|tau|sigma|mu|nu|theta|zeta|rho|xi|alpha|omega)(\W)' "Easy greek letters" rwA
+$\\`!p snip.rv = match.group(1)`$`!p snip.rv = match.group(2)`
+endsnippet
+
+priority 0
+context "nonmath()"
+snippet '(?<!\\)(Pi|Phi|Psi|Tau|Sigma|Mu|Nu|Theta|Zeta|Rho|Xi|Alpha|Omega)(\W)' "Easy greek letters" rwA
+$\\`!p snip.rv = match.group(1)`$`!p snip.rv = match.group(2)`
+endsnippet
+
+# Two lowercase a are needed so that theta, zeta, beta, etc are not all messed
+# up.
+context "nonmath()"
+snippet '(?<!\\)etaa(\W)' "Easy eta" rwA
+$\\eta$`!p snip.rv = match.group(1)`
+endsnippet
+
+context "nonmath()"
+snippet '(?<!\\)eps(\W)' "Easy epsilon" rwA
+$\\epsilon$`!p snip.rv = match.group(1)`
+endsnippet
+
+context "nonmath()"
+snippet '(?<!\\)gam(\W)' "Easy gamma" rwA
+$\\gamma$`!p snip.rv = match.group(1)`
+endsnippet
+
+context "nonmath()"
+snippet '(?<!\\)Gam(\W)' "Easy gamma" rwA
+$\\Gamma$`!p snip.rv = match.group(1)`
+endsnippet
+
+priority 0
 context "math()"
-snippet '(?<!\\)(beta|phi|psi|tau|sigma|mu|nu|theta|zeta|rho|xi|alpha|omega)' "Easy greek letters" rwA
+snippet '(?<!\\)(pi|beta|phi|psi|tau|sigma|mu|nu|theta|zeta|rho|xi|alpha|omega)' "Easy greek letters" rwA
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
 priority 0
 context "math()"
-snippet '(?<!\\)(Phi|Psi|Tau|Sigma|Mu|Nu|Theta|Zeta|Rho|Xi|Alpha|Omega)' "Easy greek letters" rwA
+snippet '(?<!\\)(Pi|Phi|Psi|Tau|Sigma|Mu|Nu|Theta|Zeta|Rho|Xi|Alpha|Omega)' "Easy greek letters" rwA
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
@@ -663,7 +697,7 @@ endsnippet
 
 priority 200
 context "math()"
-snippet '(?<!\\)(arcsin|arccos|arctan|arccot|arccsc|arcsec|pi|zeta|int)' "ln" rwA
+snippet '(?<!\\)(arcsin|arccos|arctan|arccot|arccsc|arcsec|int)' "ln" rwA
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
