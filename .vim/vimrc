@@ -23,6 +23,9 @@ set colorcolumn=80
 set directory=$HOME/.vimtmp//,./
 set backupdir=$HOME/.vimtmp//,./
 
+" Seems to be needed for WSL.
+set t_u7=
+
 " Prose
 " Automatically wrap and spell check if we are writing text and not code.
 autocmd BufRead,BufNewFile *.md,*.tex setlocal textwidth=80 spell
@@ -49,7 +52,8 @@ set splitright
 " Set a few nice key bindings
 nnoremap Y y$
 nnoremap <silent><C-l> :noh<CR>
-nnoremap <CR> o<ESC>
+nnoremap <CR> o<esc>cc<esc>
+nnoremap <C-n> s<CR><esc>
 nnoremap <Tab> <C-w>w
 nnoremap <S-Tab> <C-w>W
 nnoremap <C-u> <C-u>zz
