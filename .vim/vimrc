@@ -18,12 +18,14 @@ syntax on
 filetype plugin indent on
 set nowrap
 set colorcolumn=80
+set lazyredraw
 
 " Save temp files outside the current working directory if possible.
 set directory=$HOME/.vimtmp//,./
 set backupdir=$HOME/.vimtmp//,./
 
 " Seems to be needed for WSL.
+" If you do not do this, then vim under WSL will open in replace mode.
 set t_u7=
 
 " Prose
