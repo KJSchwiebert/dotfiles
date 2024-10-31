@@ -54,7 +54,7 @@ set splitright
 " Set a few nice key bindings
 nnoremap Y y$
 nnoremap <silent><C-l> :noh<CR>
-nnoremap <CR> o<esc>cc<esc>
+nnoremap <CR> o<esc>"_cc<esc>
 nnoremap <C-n> s<CR><esc>
 nnoremap <Tab> <C-w>w
 nnoremap <S-Tab> <C-w>W
