@@ -64,6 +64,7 @@ fi
 unset color_prompt force_color_prompt
 
 CDPATH='.:~:~/Documents'
+export PATH="$HOME/dotfiles/bin:$PATH"
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
