@@ -358,7 +358,7 @@ endsnippet
 
 snippet mk "Math" wA
 $${1}$`!p
-if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ',':']:
 	snip.rv = ' '
 else:
 	snip.rv = ''
@@ -469,11 +469,15 @@ snippet floor "floor" iA
 endsnippet
 
 snippet pmat "pmat" iA
-\begin{pmatrix} $1 \end{pmatrix} $0
+\begin{pmatrix}
+	$1
+\end{pmatrix}$0
 endsnippet
 
 snippet bmat "bmat" iA
-\begin{bmatrix} $1 \end{bmatrix} $0
+\begin{bmatrix}
+	$1
+\end{bmatrix}$0
 endsnippet
 
 context "math()"
