@@ -109,7 +109,7 @@ branch_tag()
 }
 
 # prompt
-PS1="\[${Green}\][\[${BIRed}\]\H \[${BICyan}\] \w\[${Green}\] ] \[${BIPurple}\]\$(branch_tag)\n-> \[${Color_Off}\]"
+PS1="\[${Green}\][\[${BIRed}\]\H \[${BICyan}\] \w\[${Green}\]] \[${BIPurple}\]\$(branch_tag)\n-> \[${Color_Off}\]"
 
 ##---------------------------------------------------------------------------##
 ##  DEFAULTS                                                                 ##
