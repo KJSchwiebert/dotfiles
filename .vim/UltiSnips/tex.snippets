@@ -170,16 +170,6 @@ snippet snorm "semi/Euclidian norm" iA
 \\left\\lvert $1\\right\\rvert$0
 endsnippet
 
-priority 100
-snippet lr| "left| right|" i
-\\left\\lvert ${1:${VISUAL}} \\right\\rvert$0
-endsnippet
-
-priority 100
-snippet lr|| "left|| right||" i
-\\left\\lVert ${1:${VISUAL}} \\right\\rVert$0
-endsnippet
-
 priority 0
 context "nonmath()"
 snippet '(?<!\\)(pi|beta|theta|zeta|phi|psi|tau|sigma|mu|nu|theta|zeta|rho|xi|alpha|omega)(\W)' "Easy greek letters" rwA
@@ -252,6 +242,12 @@ priority 300
 context "math()"
 snippet lint "integral" wA
 \int_{${1:-\infty}} ${2:${VISUAL}} \,d ${3:x} $0
+endsnippet
+
+priority 10
+context "math()"
+snippet '\|\|' "small |.|" rwA
+\lvert $1 \rvert$0
 endsnippet
 
 # End of snippets added by Kyle Schwiebert.
