@@ -94,7 +94,7 @@ endsnippet
 
 context "nonmath()"
 snippet sect "new section" bA
-\\section{$1}\\label{sec:${2:`!p snip.rv = t[1].partition(' ')[0].lower()`}}
+\\section{$1}\\label{sec:${2:`!p snip.rv = t[1].replace(' ','_').lower()`}}
 $0
 endsnippet
 
@@ -259,6 +259,7 @@ snippet template "Basic template" b
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{hyperref}
 \usepackage{textcomp}
 \usepackage{amsmath, amssymb}
 \usepackage{mathtools}
