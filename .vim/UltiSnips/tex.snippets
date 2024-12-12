@@ -29,8 +29,7 @@ endsnippet
 context "math()"
 snippet mder "material derivative" wA
 \\frac{\\partial ${1:f}}{\\partial ${2:t}}
-+ (\\mathbf{u} \\cdot \\nabla${3:_{\\mathbf{x}}}) $1
-$0
++ ${3:\\mathbf{v}} \\cdot \\nabla${4:_{\\mathbf{x}}} $1 $0
 endsnippet
 
 context "math()"
@@ -93,13 +92,13 @@ snippet eref "equation ref" wA
 endsnippet
 
 context "nonmath()"
-snippet sect "new section" bA
+snippet sec "new section" bA
 \\section{$1}\\label{sec:${2:`!p snip.rv = t[1].replace(' ','_').lower()`}}
 $0
 endsnippet
 
 context "nonmath()"
-snippet subsect "new subsection" bA
+snippet ssec "new subsection" bA
 \\subsection{$1}\\label{sbsec:${2:`!p snip.rv = t[1].partition(' ')[0].lower()`}}
 $0
 endsnippet
@@ -172,7 +171,7 @@ endsnippet
 
 priority 0
 context "nonmath()"
-snippet '(?<!\\)(pi|beta|theta|zeta|phi|psi|tau|sigma|mu|nu|theta|zeta|rho|xi|alpha|omega|delta)(\W)' "Easy greek letters" rwA
+snippet '(?<!\\)(epsilon|pi|beta|theta|zeta|phi|psi|tau|sigma|mu|nu|theta|zeta|rho|xi|alpha|omega|delta)(\W)' "Easy greek letters" rwA
 $\\`!p snip.rv = match.group(1)`$`!p snip.rv = match.group(2)`
 endsnippet
 
@@ -184,14 +183,10 @@ endsnippet
 
 # Two lowercase a are needed so that theta, zeta, beta, etc are not all messed
 # up.
+priority -1
 context "nonmath()"
 snippet '(?<!\\)eta(\W)' "Easy eta" rwA
 $\\eta$`!p snip.rv = match.group(1)`
-endsnippet
-
-context "nonmath()"
-snippet '(?<!\\)eps(\W)' "Easy epsilon" rwA
-$\\epsilon$`!p snip.rv = match.group(1)`
 endsnippet
 
 context "nonmath()"
@@ -371,7 +366,7 @@ endsnippet
 snippet ali "Align" bA
 \begin{align*}
 	${1:${VISUAL}}
-.\end{align*}
+\end{align*}
 endsnippet
 
 
@@ -662,7 +657,7 @@ snippet lll "l" iA
 endsnippet
 
 context "math()"
-snippet nabl "nabla" iA
+snippet nabla "nabla" iA
 \nabla
 endsnippet
 
