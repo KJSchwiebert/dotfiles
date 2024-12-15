@@ -18,7 +18,7 @@ if [ -f $HOME/.cargo/env ]; then
 fi
 
 CDPATH=".:$HOME:$HOME/Documents"
-export PATH="$HOME/dotfiles/bin:/usr/local/go/bin:$PATH"
+export PATH="$HOME/dotfiles/bin:/usr/local/go/bin:$HOME/go/bin:$PATH"
 
 
 ##---------------------------------------------------------------------------##
