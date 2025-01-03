@@ -1,4 +1,5 @@
 # Basic snippet support for latex files.
+
 # This file is based on Gilles Castel. See the associated LISENCE file in this
 # folder.
 global !p
@@ -446,7 +447,7 @@ snippet == "equals" iA
 &= $1 \\\\
 endsnippet
 
-snippet != "equals" iA
+snippet neq "equals" wA
 \neq 
 endsnippet
 
@@ -737,7 +738,7 @@ endsnippet
 
 context "math()"
 snippet set "set" wA
-\\{$1\\} $0
+\\{$1\\}$0
 endsnippet
 
 context "math()"
