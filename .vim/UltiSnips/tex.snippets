@@ -20,11 +20,17 @@ endglobal
 
 # Snippets added by Kyle Schwiebert.
 # Some of these were inspired by the latex suite plugin for Obsidian.md.
+context "nonmath()"
 snippet ndm "Numbered equation" wA
 \begin{equation}
 	${1:${VISUAL}}
 	\label{eq:$2}
 \end{equation} $0
+endsnippet
+
+context "nonmath()"
+snippet col "color" w
+{\\color{$1} ${2:${VISUAL}}}$0
 endsnippet
 
 context "math()"
@@ -279,7 +285,10 @@ snippet template "Basic template" b
 \date{${4:\\today}}
 
 \begin{document}
-	$5
+
+\maketitle
+
+$5
 \end{document}
 endsnippet
 
@@ -316,14 +325,14 @@ endsnippet
 
 snippet enum "Enumerate" bA
 \begin{enumerate}
-	\item $0
-\end{enumerate}
+	\item $1
+\end{enumerate}$0
 endsnippet
 
 snippet item "Itemize" bA
 \begin{itemize}
-	\item $0
-\end{itemize}
+	\item $1
+\end{itemize}$0
 endsnippet
 
 snippet desc "Description" b
