@@ -118,11 +118,11 @@ endsnippet
 # endsnippet
 
 # We would like to wrap any singleton letter in $$ automatically.
-# Note that a, A, I, s, and t must be skipped.
+# Note that a, A, and I must be skipped.
 # As an edge case, we do not expand this snippet after an apostrophe (single
 # quote).
 context "nonmath()"
-snippet !\b(?<!')(b-zB-HJ-Z)(\W)!' "single letter wrap in inline math" rwA
+snippet !\b(?<!')([b-zB-HJ-Z])(\W)! "single letter wrap in inline math" rwA
 \$`!p snip.rv = match.group(1)`\$`!p snip.rv = match.group(2)`
 endsnippet
 
