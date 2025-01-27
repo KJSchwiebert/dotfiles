@@ -119,19 +119,10 @@ endsnippet
 
 # We would like to wrap any singleton letter in $$ automatically.
 # Note that a, A, I, s, and t must be skipped.
-# Lower case t is not allowed due to word such as "can't".
-# Lower case s is similarly not allowed due to possessive apostrophes.
-# This saves so many key strokes that it is worth the occasional pain of
-# needing to go back and remove some extra $.
-# For example when typing "d'Alembert".
+# As an edge case, we do not expand this snippet after an apostrophe (single
+# quote).
 context "nonmath()"
-snippet '\b([b-ru-zB-HJ-Z])(\W)' "single letter wrap in inline math" rwA
-\$`!p snip.rv = match.group(1)`\$`!p snip.rv = match.group(2)`
-endsnippet
-
-# See the comment above. We handle the special case for t here.
-context "nonmath()"
-snippet !\b(?<!')(s|t)(\W)! "wrap t in math unless apostrophy" rwA
+snippet !\b(?<!')(b-zB-HJ-Z)(\W)!' "single letter wrap in inline math" rwA
 \$`!p snip.rv = match.group(1)`\$`!p snip.rv = match.group(2)`
 endsnippet
 
