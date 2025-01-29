@@ -29,6 +29,13 @@ set undodir=$HOME/.vimtmp//,./
 " If you do not do this, then vim under WSL will open in replace mode.
 set t_u7=
 
+" Do autocompletion like in bash (technically readline)
+" On first tab press, it fills as much as possible.
+" On second tab press it gives a menu.
+" Subsequent tab presses populate the input with cycling through the options.
+set wildmode=longest,list,full
+set wildmenu
+
 " Prose
 " Automatically wrap and spell check if we are writing text and not code.
 autocmd BufRead,BufNewFile *.md,*.tex setlocal textwidth=80 spell
