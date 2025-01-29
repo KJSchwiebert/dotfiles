@@ -82,9 +82,6 @@ nnoremap gQQ _mpo<esc>cc<esc>kO<esc>cc<esc>j:s/\. /\.\r/g<cr>vip:g /./norm! gqq<
 " Easy switching between buffers.
 nnoremap gb :ls<CR>:b<space>
 
-" Open and close NERDTree
-nnoremap <c-b> :NERDTreeToggle<cr>
-
 " Tabbing
 set autoindent expandtab tabstop=4 shiftwidth=4 smartindent softtabstop=4
 
@@ -193,9 +190,6 @@ augroup END
 autocmd vimenter * ++nested colorscheme gruvbox
 set termguicolors
 set background=dark    
-
-" Open NERDTree on startup.
-" autocmd VimEnter * NERDTree
 
 " When started as "evim", evim.vim will already have done these settings, bail
 " out.
