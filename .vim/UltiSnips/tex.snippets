@@ -34,6 +34,12 @@ snippet col "color" w
 endsnippet
 
 context "math()"
+snippet der "material derivative" wA
+\\frac{d ${1:f}}{d ${2:t}}$0
+endsnippet
+
+priority 1
+context "math()"
 snippet mder "material derivative" wA
 \\frac{\\partial ${1:f}}{\\partial ${2:t}}
 + ${3:\\mathbf{v}} \\cdot \\nabla${4:_{\\mathbf{x}}} $1 $0
@@ -44,6 +50,7 @@ snippet pder "partial derivative" wA
 \\frac{\\partial ${1:f}}{\\partial ${2:t}}$0
 endsnippet
 
+priority 0
 context "math()"
 snippet _rm "roman text subscript" iA
 _{\mathrm{$1}}$0
