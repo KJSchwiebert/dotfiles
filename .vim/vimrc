@@ -40,6 +40,10 @@ set wildmenu
 " Automatically wrap and spell check if we are writing text and not code.
 autocmd BufRead,BufNewFile *.md,*.tex setlocal textwidth=80 spell
 
+" Set the folding so it will look nicer in vimtex.
+" NOTE: The trailing space in the following line is REQUIRED.
+set fillchars=fold:\ 
+
 " Spell checking language and autocorrect.
 set spelllang=en_us
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
@@ -103,6 +107,25 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'morhetz/gruvbox'
 
 Plug 'vim-airline/vim-airline'
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+        let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
 
 Plug 'vim-airline/vim-airline-themes'
     let g:airline_theme='gruvbox'
@@ -119,6 +142,8 @@ Plug 'lervag/vimtex', {'for': 'tex', 'tag': 'v2.15'}
     let g:vimtex_quickfix_mode=0
     let g:vimtex_indent_enable=0
     let g:vimtex_indent_items=[]
+    let g:vimtex_fold_enabled=1
+    let g:vimtex_fold_types = {'envs' : {'enabled' : 0}}
 
 Plug 'rhysd/vim-clang-format'
 
