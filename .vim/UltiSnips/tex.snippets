@@ -71,25 +71,6 @@ snippet td "to the ... power" iA
 ^
 endsnippet
 
-# These snippets solve an annoying latex problem:
-# If you type \exp(x) you get the correct spacing but if you type
-# \exp\left( x \right) you get extra spaces before and after the delimiters.
-# Some external packages can solve this problem, but this is the easy native 
-# solution.
-# Typing this constantly would be annoying, but with the power of snippets,
-# we can get something which looks nice without another package.
-priority 10000
-context "math()"
-snippet '\\(sin|cos|arccot|cot|csc|ln|log|exp) *lr' "ln" riA
-{\\`!p snip.rv = match.group(1)`}{\\left( $1 \\right)}$0
-endsnippet
-
-priority 20000
-context "math()"
-snippet '\\(arcsin|arccos|arctan|arccot|arccsc|arcsec) *lr' "ln" riA
-{\\`!p snip.rv = match.group(1)`}{\\left( $1 \\right)}$0
-endsnippet
-
 priority 0
 
 # Non math snips.
