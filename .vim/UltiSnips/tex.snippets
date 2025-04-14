@@ -267,6 +267,12 @@ snippet template "Basic template" b
 \usepackage[sorting=none]{biblatex}
 \addbibresource{${1:./bibliograophy.bib}}
 
+% Hack for annoying extra space around \left .. \right delimiters.
+% See https://tex.stackexchange.com/questions/2607/spacing-around-left-and-right
+\let\originalleft\left
+\let\originalright\right
+\renewcommand{\left}{\mathopen{}\mathclose\bgroup\originalleft}
+\renewcommand{\right}{\aftergroup\egroup\originalright}
 
 % figure support
 \usepackage{import}
