@@ -195,3 +195,8 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# Source any machine specific features.
+if [ -f $HOME/.bashrc_machine_specific ]; then
+    . $HOME/.bashrc_machine_specific
+fi
