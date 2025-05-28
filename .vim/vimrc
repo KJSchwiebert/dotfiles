@@ -143,6 +143,7 @@ Plug 'lervag/vimtex', {'for': 'tex', 'tag': 'v2.15'}
     let g:vimtex_indent_enable=0
     let g:vimtex_indent_items=[]
     let g:vimtex_fold_enabled=1
+    let g:vimtex_fold_manual=1
     let g:vimtex_fold_types = {'envs' : {'enabled' : 0}, 'env_options' : {'enabled' : 0}, 'items' : {'enabled' : 0}}
 
 Plug 'rhysd/vim-clang-format'

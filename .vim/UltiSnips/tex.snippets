@@ -114,9 +114,20 @@ snippet !\b(?<!')([b-zB-HJ-Z])(\W)! "single letter wrap in inline math" rwA
 \$`!p snip.rv = match.group(1)`\$`!p snip.rv = match.group(2)`
 endsnippet
 
+# Wrap numbers in inline math automatically.
+context "nonmath()"
+snippet '\b(\d+)(\W)' "numbers inline" rwA
+\$`!p snip.rv = match.group(1)`\$`!p snip.rv = match.group(2)`
+endsnippet
+
 context "math()"
 snippet '([lkjin])\1' "Easy index for common indicies" irA
 _`!p snip.rv = match.group(1)`
+endsnippet
+
+context "math()"
+snippet mcal "mathcal" iA
+\mathcal{$1}$0
 endsnippet
 
 priority 101
@@ -131,28 +142,34 @@ snippet '([\\\w]+)bf' "postfix modifier" rwA
 \\mathbf{`!p snip.rv = match.group(1)`}
 endsnippet
 
-priority 100
+priority 101
 context "math()"
-snippet '(tilde|bar|hat)' "postfix modifier" rwA
-\\`!p snip.rv = match.group(1)`{$1}$0
+snippet '\b([A-Z])mcal' "postfix mathcal" rwA
+\\mathcal{`!p snip.rv = match.group(1)`}$0
 endsnippet
 
 priority 100
 context "math()"
-snippet bf "postfix modifier" wA
-\\mathbf{$1}$0
+snippet '(tilde|bar|hat|dot)' "visual modifier" rwA
+\\`!p snip.rv = match.group(1)`{${1:${VISUAL}}}$0
+endsnippet
+
+priority 100
+context "math()"
+snippet bf "visual modifier" wA
+\\mathbf{${1:${VISUAL}}}$0
 endsnippet
 
 priority 100
 context "math()"
 snippet norm "norm" iA
-\\left\\lVert $1\\right\\rVert$0
+\\left\\lVert ${1:${VISUAL}}\\right\\rVert$0
 endsnippet
 
 priority 200
 context "math()"
 snippet snorm "semi/Euclidian norm" iA
-\\left\\lvert $1\\right\\rvert$0
+\\left\\lvert ${1:${VISUAL}}\\right\\rvert$0
 endsnippet
 
 priority 0
@@ -640,11 +657,6 @@ endsnippet
 snippet nn "Tikz node" w
 \node[$5] (${1/[^0-9a-zA-Z]//g}${2}) ${3:at (${4:0,0}) }{$${1}$};
 $0
-endsnippet
-
-context "math()"
-snippet mcal "mathcal" iA
-\mathcal{$1}$0
 endsnippet
 
 snippet lll "l" iA
