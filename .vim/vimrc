@@ -91,9 +91,7 @@ endfunction
 command -nargs=* Replace call GlobalReplace(<f-args>)
 
 " Undo the occasional overeager ultisnips expansion.
-" Might as well put the ability to redo as well.
 inoremap <C-u> <C-o>u
-inoremap <C-r> <C-o><C-r>
 
 " Block comment in cpp.
 xnoremap gc <esc>mp`>a*/<esc>gv<esc>`<_i/*<esc>`p
