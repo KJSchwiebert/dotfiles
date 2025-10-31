@@ -12,6 +12,9 @@ esac
 ## MY PRESETS                                                                ##
 ##---------------------------------------------------------------------------##
 
+# Default editor:
+export EDITOR="vim"
+
 # Initalize rust.
 if [ -f $HOME/.cargo/env ]; then
     . $HOME/.cargo/env
@@ -19,7 +22,6 @@ fi
 
 CDPATH=".:$HOME:$HOME/Documents"
 export PATH="$HOME/dotfiles/bin:/usr/local/go/bin:$HOME/go/bin:$PATH"
-
 
 ##---------------------------------------------------------------------------##
 ## PROMPT AND COLORS
