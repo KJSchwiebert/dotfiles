@@ -81,14 +81,31 @@ nnoremap gS ciW
 tnoremap <C-n> <C-w>N
 inoremap jj <ESC>l
 
+" Allow more complex regex. Don't make this too big or bad regexes will crash
+" vim.
+set maxmempattern=10000
+
 " Make global recursive find and replace
 function! GlobalReplace(old, new)
+    if a:0 != 2
+        throw "Error GlobalReplace() expects two arguements, got " . a:0
+    endif
     execute 'vimgrep /\C' . a:old . '/gj **/*'
     execute 'cfdo %s/\C' . a:old . '/' . a:new . '/g | update'
 endfunction
 
+" Global recursive find and replace with 
+function! GlobalReplaceC(old, new)
+    if a:0 != 2
+        throw "Error GlobalReplaceC() expects two arguements, got " . a:0
+    endif
+    execute 'vimgrep /\C' . a:old . '/gj **/*'
+    execute 'cfdo %s/\C' . a:old . '/' . a:new . '/gc | update'
+endfunction
+
 " Wrap it in a command.
 command -nargs=* Replace call GlobalReplace(<f-args>)
+command -nargs=* ReplaceC call GlobalReplaceC(<f-args>)
 
 " Undo the occasional overeager ultisnips expansion.
 inoremap <C-u> <C-o>u

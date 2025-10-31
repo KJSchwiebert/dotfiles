@@ -22,9 +22,8 @@ endglobal
 # Some of these were inspired by the latex suite plugin for Obsidian.md.
 context "nonmath()"
 snippet ndm "Numbered equation" wA
-\begin{equation}
-	${1:${VISUAL}}
-	\label{eq:$2}
+\begin{equation} \label{eq:$1}
+	${2:${VISUAL}}
 \end{equation} $0
 endsnippet
 
@@ -34,7 +33,7 @@ snippet col "color" w
 endsnippet
 
 context "math()"
-snippet der "material derivative" wA
+snippet der "basic derivative" wA
 \\frac{d ${1:f}}{d ${2:t}}$0
 endsnippet
 
@@ -175,13 +174,13 @@ endsnippet
 
 priority 0
 context "nonmath()"
-snippet '(?<!\\)(epsilon|pi|beta|theta|zeta|phi|psi|tau|sigma|mu|nu|theta|zeta|rho|xi|alpha|omega|delta)(\W)' "Easy greek letters" rwA
+snippet '(?<!\\)(lambda|kappa|epsilon|pi|beta|theta|zeta|phi|psi|tau|sigma|mu|nu|theta|zeta|rho|xi|alpha|omega|delta)(\W)' "Easy greek letters" rwA
 $\\`!p snip.rv = match.group(1)`$`!p snip.rv = match.group(2)`
 endsnippet
 
 priority 0
 context "nonmath()"
-snippet '(?<!\\)(Theta|Zeta|Pi|Phi|Psi|Tau|Sigma|Mu|Nu|Theta|Zeta|Rho|Xi|Alpha|Omega|Delta)(\W)' "Easy greek letters" rwA
+snippet '(?<!\\)(Lambda|Theta|Zeta|Pi|Phi|Psi|Tau|Sigma|Mu|Nu|Theta|Zeta|Rho|Xi|Alpha|Omega|Delta)(\W)' "Easy greek letters" rwA
 $\\`!p snip.rv = match.group(1)`$`!p snip.rv = match.group(2)`
 endsnippet
 
@@ -205,13 +204,13 @@ endsnippet
 
 priority 0
 context "math()"
-snippet '(?<!\\)(pi|beta|theta|zeta|phi|psi|tau|sigma|mu|nu|theta|zeta|rho|xi|alpha|omega|delta)' "Easy greek letters" rwA
+snippet '(?<!\\)(lambda|kappa|pi|beta|theta|zeta|phi|psi|tau|sigma|mu|nu|theta|zeta|rho|xi|alpha|omega|delta)' "Easy greek letters" rwA
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
 priority 0
 context "math()"
-snippet '(?<!\\)(Theta|Zeta|Pi|Phi|Psi|Tau|Sigma|Mu|Nu|Theta|Zeta|Rho|Xi|Alpha|Omega|Delta)' "Easy greek letters" rwA
+snippet '(?<!\\)(Lambda|Theta|Zeta|Pi|Phi|Psi|Tau|Sigma|Mu|Nu|Theta|Zeta|Rho|Xi|Alpha|Omega|Delta)' "Easy greek letters" rwA
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
@@ -249,10 +248,22 @@ snippet '\|\|' "small |.|" rwA
 \lvert $1 \rvert$0
 endsnippet
 
+priority 0
+context "nonmath()"
+snippet 'ttt' "inline code" rwA
+{\\texttt{${1:${VISUAL}}}} $0
+endsnippet
+
+context "nonmath()"
+snippet 'code' "inline code" rbA
+\\begin{lstlisting}
+	$1
+\\end{lstlisting} $0
+endsnippet
+
 # End of snippets added by Kyle Schwiebert.
 # Although some of the below have been modified or deleted.
 
-priority 0
 snippet template "Basic template" b
 \documentclass[letterpaper]{article}
 
