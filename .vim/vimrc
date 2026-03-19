@@ -79,7 +79,6 @@ nnoremap S ciw
 nnoremap gX daW
 nnoremap gS ciW
 tnoremap <C-n> <C-w>N
-inoremap jj <ESC>l
 
 " Allow more complex regex. Don't make this too big or bad regexes will crash
 " vim.
@@ -108,7 +107,7 @@ command -nargs=* Replace call GlobalReplace(<f-args>)
 command -nargs=* ReplaceC call GlobalReplaceC(<f-args>)
 
 " Undo the occasional overeager ultisnips expansion.
-inoremap <C-u> <C-o>u
+inoremap <C-u> <esc>ui
 
 " Block comment in cpp.
 xnoremap gc <esc>mp`>a*/<esc>gv<esc>`<_i/*<esc>`p

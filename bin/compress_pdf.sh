@@ -19,8 +19,10 @@ for file in $FILES; do
     outfile="$(dirname -- $file)/output.pdf" 
     if gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook \
            -dQUIET -dDetectDuplicateImages -o "$outfile" "$file" ; then
-        rm "$file"
-        mv "$outfile" "$file"
+        if [ "$(du "$outfile" | awk '{print $1}')" -lt "$infilesize" ]; then
+            rm "$file"
+            mv "$outfile" "$file"
+        fi
         endsize=$(($endsize + $(du $file | awk '{print $1}')))
         echo "Final size is $(du -h "$file" | awk '{print $1}')"
     else

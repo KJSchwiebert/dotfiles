@@ -4,3 +4,17 @@
 
 [core]
     editor = vim
+
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    required = true
+    process = git-lfs filter-process
+
+[credential "https://code-int.ornl.gov"]
+    name = Schwiebert, Kyle
+    email = schwiebertkj@ornl.gov
+
+[credential "https://code.ornl.gov"]
+    name = Schwiebert, Kyle
+    email = schwiebertkj@ornl.gov
