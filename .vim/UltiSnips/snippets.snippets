@@ -1,7 +1,7 @@
 # Snippets for writting snippets hehe.
 priority 0
 snippet snip "No context" bA
-snippet $1 "$2" ${3:wA}
+snippet '$1' "${2:$1}" ${3:wA}
 $4
 `echo endsnippet`$0
 endsnippet
@@ -10,7 +10,7 @@ endsnippet
 priority 1
 snippet msnip "Latex math context" bA
 context "math()"
-snippet $1 "$2" ${3:wA}
+snippet '$1' "${2:$1}" ${3:wA}
 $4
 `echo endsnippet`$0
 endsnippet
@@ -18,7 +18,7 @@ endsnippet
 priority 1
 snippet nsnip "Latex outside math context" bA
 context "nonmath()"
-snippet $1 "$2" ${3:wA}
+snippet '$1' "${2:$1}" ${3:wA}
 $4
 `echo endsnippet`$0
 endsnippet

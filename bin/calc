@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# If there are no arguements, just launch bc for multiple commands.
+if [ $# -lt 1 ]; then
+    bc -lq
+    exit 0
+fi
+
+# There are one or more arguments. Attempt to just interpret them as a single
+# request for bc.
+echo "$*" | bc -lq 
+exit 0

@@ -1,4 +1,12 @@
 {
     "inlayHint.enable": false,
-    "semanticTokens.enable": true
+    "semanticTokens.enable": true,
+    "languageserver": {
+        "lean": {
+            "command": "lean",
+            "args": ["--server"],
+            "trace.server": "verbose",
+            "filetypes": ["lean"]
+        }
+    }
 }
