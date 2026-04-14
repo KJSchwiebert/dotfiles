@@ -109,6 +109,12 @@ snippet ssec "new subsection" bA
 $0
 endsnippet
 
+context "nonmath()"
+snippet sssec "new subsubsection" bA
+\\subsubsection{$1}\\label{ssbsec:${2:`!p snip.rv = t[1].partition(' ')[0].lower()`}}
+$0
+endsnippet
+
 # Environments
 # priority 1000
 # context "env(itemize)"
@@ -144,8 +150,15 @@ endsnippet
 
 context "math()"
 snippet mcal "mathcal" iA
-\mathcal{$1}$0
+\\mathcal{$1}$0
 endsnippet
+
+priority 10
+context "math()"
+snippet bmcal "mathcal" iA
+\\boldsymbol{\\mathcal{$1}}$0
+endsnippet
+priority 0
 
 priority 101
 context "math()"
@@ -170,6 +183,13 @@ context "math()"
 snippet '\b([A-Z])mcal' "postfix mathcal" rwA
 \\mathcal{`!p snip.rv = match.group(1)`}$0
 endsnippet
+
+priority 102
+context "math()"
+snippet '\b([A-Z])mcal' "postfix mathcal" rwA
+\\boldsymbol{\\mathcal{`!p snip.rv = match.group(1)`}}$0
+endsnippet
+priority 101
 
 priority 100
 context "math()"

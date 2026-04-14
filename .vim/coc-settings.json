@@ -8,5 +8,20 @@
             "trace.server": "verbose",
             "filetypes": ["lean"]
         }
+    },
+  "languageserver": {
+    "matlab": {
+      "command": "/usr/lib/node_modules/matlab-language-server",
+      "args": ["--stdio"],
+      "filetypes": ["matlab"],
+      "rootPatterns": [".git/"],
+      "settings": {
+        "matlab": {
+          "installPath": "/mnt/c/Program Files/MATLAB/R2024a",
+          "indexWorkspace": true
+        }
+      }
     }
+  }
 }
+
