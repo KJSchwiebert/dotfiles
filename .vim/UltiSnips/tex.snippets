@@ -98,19 +98,19 @@ snippet eref "equation ref" wA
 endsnippet
 
 context "nonmath()"
-snippet sec "new section" bA
+snippet sec "new section" b
 \\section{$1}\\label{sec:${2:`!p snip.rv = t[1].replace(' ','_').lower()`}}
 $0
 endsnippet
 
 context "nonmath()"
-snippet ssec "new subsection" bA
+snippet ssec "new subsection" b
 \\subsection{$1}\\label{sbsec:${2:`!p snip.rv = t[1].partition(' ')[0].lower()`}}
 $0
 endsnippet
 
 context "nonmath()"
-snippet sssec "new subsubsection" bA
+snippet sssec "new subsubsection" b
 \\subsubsection{$1}\\label{ssbsec:${2:`!p snip.rv = t[1].partition(' ')[0].lower()`}}
 $0
 endsnippet
@@ -186,7 +186,7 @@ endsnippet
 
 priority 102
 context "math()"
-snippet '\b([A-Z])mcal' "postfix mathcal" rwA
+snippet '\b([A-Z])bmcal' "postfix mathcal" rwA
 \\boldsymbol{\\mathcal{`!p snip.rv = match.group(1)`}}$0
 endsnippet
 priority 101
@@ -324,6 +324,7 @@ snippet template "Basic template" b
 \usepackage[margin = 1in]{geometry}
 \usepackage[sorting=none]{biblatex}
 \usepackage{xcolor}
+\usepackage{comment}
 \addbibresource{${1:./bibliograophy.bib}}
 
 \DeclareMathOperator{\Order}{\mathcal{O}}
@@ -359,8 +360,8 @@ endsnippet
 
 snippet beg "begin{} / end{}" bA
 \\begin{$1}
-	$0
-\\end{$1}
+	${2:${VISUAL}}
+\\end{$1}$0
 endsnippet
 
 priority 100
