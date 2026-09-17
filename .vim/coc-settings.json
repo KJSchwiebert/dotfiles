@@ -1,27 +1,13 @@
 {
-    "inlayHint.enable": false,
-    "semanticTokens.enable": true,
-    "languageserver": {
-        "lean": {
-            "command": "lean",
-            "args": ["--server"],
-            "trace.server": "verbose",
-            "filetypes": ["lean"]
-        }
-    },
+  "inlayHint.enable": false,
+  "semanticTokens.enable": true,
   "languageserver": {
-    "matlab": {
-      "command": "/usr/lib/node_modules/matlab-language-server",
-      "args": ["--stdio"],
-      "filetypes": ["matlab"],
-      "rootPatterns": [".git/"],
-      "settings": {
-        "matlab": {
-          "installPath": "/mnt/c/Program Files/MATLAB/R2024a",
-          "indexWorkspace": true
-        }
-      }
+    "lean": {
+      "command": "lean",
+      "args": ["--server"],
+      "trace.server": "verbose",
+      "filetypes": ["lean", "lean4"],
+      "rootPatterns": ["lakefile.toml", "lean-toolchain"]
     }
   }
 }
-

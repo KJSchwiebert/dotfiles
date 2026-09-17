@@ -12,6 +12,8 @@
 "
 " Set case search so that if I type a capital I want case to matter otherwise 
 " not.
+
+" Basic style and QOL options.
 set ignorecase
 set smartcase
 syntax on
@@ -39,6 +41,16 @@ set wildmenu
 " Prose
 " Automatically wrap and spell check if we are writing text and not code.
 autocmd BufRead,BufNewFile *.md,*.tex setlocal textwidth=80 spell
+
+" Needed to stop bad performace in tex files. Does not highlight matching
+" parens and environment tags.
+"
+" Will reenable when leaving the buffer.
+augroup TeXPerformance
+    autocmd FileType tex silent! NoMatchParen
+
+    autocmd BufLeave *.tex silent! DoMatchParen
+augroup END
 
 " Set the folding so it will look nicer in vimtex.
 " NOTE: The trailing space in the following line is REQUIRED.
@@ -79,6 +91,14 @@ nnoremap S ciw
 nnoremap gX daW
 nnoremap gS ciW
 tnoremap <C-n> <C-w>N
+
+" Undo ultisnips automatic expansion.
+" Put it into an autocmd block so it doesn't get clobbered by default for
+" <c-u>.
+augroup FixDefaults
+    autocmd!
+    autocmd VimEnter * inoremap <expr> <c-u> "\<c-g>u\<c-o>2u"
+augroup END
 
 " Allow more complex regex. Don't make this too big or bad regexes will crash
 " vim.
@@ -129,6 +149,7 @@ call plug#begin()
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} 
     let g:coc_default_semantic_highlight_groups = 1
+    let g:coc_allowed_filetypes = ['lean', 'lean4', 'python', 'cpp']
 
 Plug 'jiangmiao/auto-pairs'
 
@@ -168,11 +189,11 @@ Plug 'lervag/vimtex', {'for': 'tex', 'tag': 'v2.15'}
     let g:tex_flavor='latex'
     let g:vimtex_view_method='zathura'
     let g:vimtex_quickfix_mode=0
-    let g:vimtex_indent_enable=0
     let g:vimtex_indent_items=[]
     let g:vimtex_fold_enabled=1
     let g:vimtex_fold_manual=1
     let g:vimtex_fold_types = {'envs' : {'enabled' : 0}, 'env_options' : {'enabled' : 0}, 'items' : {'enabled' : 0}}
+    let g:vimtex_matchparen_enabled = 0
 
 Plug 'rhysd/vim-clang-format'
 
@@ -233,6 +254,11 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call ShowDocumentation()<CR>
+
+autocmd FileType *
+  \ if index(g:coc_allowed_filetypes, expand('<amatch>')) == -1 |
+  \   let b:coc_enabled = 0 |
+  \ endif
 
 function! ShowDocumentation()
  if CocAction('hasProvider', 'hover')

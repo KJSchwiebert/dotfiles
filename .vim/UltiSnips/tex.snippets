@@ -81,13 +81,17 @@ snippet td "to the ... power" iA
 ^
 endsnippet
 
+context "math()"
+snippet [] "square" iA
+\square
+endsnippet
+
 priority 0
 
 # Non math snips.
 context "nonmath()"
 snippet frame "start new slide" bA
-\\begin{frame}{\Large ${1:Title}}
-	\centering
+\\begin{frame}{${1:Title}}
 	$0
 \\end{frame}
 endsnippet
@@ -186,15 +190,21 @@ endsnippet
 
 priority 102
 context "math()"
-snippet '\b([A-Z])bmcal' "postfix mathcal" rwA
+snippet '\b([A-Z])bmcal' "postfix bold mathcal" rwA
 \\boldsymbol{\\mathcal{`!p snip.rv = match.group(1)`}}$0
 endsnippet
 priority 101
 
 priority 100
 context "math()"
-snippet '(tilde|bar|hat|dot)' "visual modifier" rwA
+snippet '(tilde|hat|dot)' "visual modifier" rwA
 \\`!p snip.rv = match.group(1)`{${1:${VISUAL}}}$0
+endsnippet
+
+priority 100
+context "math()"
+snippet 'bar' "visual modifier" rwA
+\\overline{${1:${VISUAL}}}$0
 endsnippet
 
 priority 100
@@ -704,6 +714,11 @@ endsnippet
 context "math()"
 snippet grad "nabla" iA
 \nabla
+endsnippet
+
+context "math()"
+snippet div "nabla" iA
+\nabla \cdot 
 endsnippet
 
 context "math()"
