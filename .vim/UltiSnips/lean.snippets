@@ -1,0 +1,49 @@
+# Snippets for coding in lean
+
+# Auto unicode.
+snippet '\bfor all(\W)' "for all" rwA
+∀`!p snip.rv = match.group(1)`
+endsnippet
+
+snippet '\bthere exists(\W)' "there exists" rwA
+∃`!p snip.rv = match.group(1)`
+endsnippet
+
+snippet '->' "implies" wA
+→`!p snip.rv = match.group(1)`
+endsnippet
+
+snippet '\biff(\W)' "if and only if" wA
+↔`!p snip.rv = match.group(1)`
+endsnippet
+
+snippet '\bnot(\W)' "not" rwA
+¬`!p snip.rv = match.group(1)`
+endsnippet
+
+snippet '\band(\W)' "and" rwA
+∧`!p snip.rv = match.group(1)`
+endsnippet
+
+snippet '\bor(\W)' "or" rwA
+∨`!p snip.rv = match.group(1)`
+endsnippet
+
+snippet 'angle' "angle brackets" w
+‹$1› $0
+endsnippet
+
+# Sets 
+
+# Greek letters
+snippet '\balpha(\W)' "alpha" rwA
+α`!p snip.rv = match.group(1)`
+endsnippet
+
+snippet '\bbeta(\W)' "beta" rwA
+β`!p snip.rv = match.group(1)`
+endsnippet
+
+snippet '\bgamma(\W)' "gamma" rwA
+γ`!p snip.rv = match.group(1)`
+endsnippet

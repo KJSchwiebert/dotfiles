@@ -29,6 +29,10 @@ ln -s ~/dotfiles/.gitconfig ~/.gitconfig
 rm ~/.bashrc
 ln -s ~/dotfiles/.bashrc ~/.bashrc
 
+# Get tmux configuration.
+rm ~/.tmux.conf
+ls -s ~/dotfiles/.tmux.conf ~/.tmux.conf
+
 # This is required to make sure we get syntax highlighting and stuff for CoC.
 # To setup CoC for cpp you will need to do a few other things including running
 # :CocInstall coc-clangd. You will need clangd 12 or better as well as 

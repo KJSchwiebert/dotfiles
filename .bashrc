@@ -113,6 +113,11 @@ branch_tag()
 # prompt
 PS1="\[${Green}\][\[${BIRed}\]\H \[${BICyan}\] \w\[${Green}\]] \[${BIPurple}\]\$(branch_tag)\n-> \[${Color_Off}\]"
 
+# Put this at the very end of your .bashrc
+if [ -n "$TMUX" ]; then
+  PS1="\[${Yellow}\][tmux:\$(tmux display-message -p '#I' 2>/dev/null)] $PS1"
+fi
+
 ##---------------------------------------------------------------------------##
 ##  DEFAULTS                                                                 ##
 ##---------------------------------------------------------------------------##

@@ -1,0 +1,18 @@
+snippet guard "Auto-Uppercase Header Guard" b
+#ifndef ${1:MACRO}
+#define `!p snip.rv = t[1].upper().replace(' ', '_').replace('-', '_')`
+
+$0
+
+#endif /* `!p snip.rv = t[1].upper().replace(' ', '_').replace('-', '_')` */
+`!p
+def force_upper(snip):
+    if t[1]:
+        t[1] = t[1].upper().replace(' ', '_').replace(' ', '_')
+force_upper(snip)
+`
+endsnippet
+
+snippet 'sep' "visual seperator" bA
+//---------------------------------------------------------------------------//
+endsnippet
