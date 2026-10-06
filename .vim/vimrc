@@ -187,7 +187,7 @@ Plug 'sirver/ultisnips'
 
 Plug 'lervag/vimtex', {'for': 'tex', 'tag': 'v2.15'}
     let g:tex_flavor='latex'
-    let g:vimtex_view_method='zathura'
+    let g:vimtex_view_method='sioyek'
     let g:vimtex_quickfix_mode=0
     let g:vimtex_indent_items=[]
     let g:vimtex_fold_enabled=1
