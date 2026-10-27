@@ -50,6 +50,12 @@ snippet mder "material derivative" wA
 endsnippet
 
 context "math()"
+snippet cder "material derivative" wA
+\\frac{\\partial ${1:f}}{\\partial ${2:t}}
++ \\nabla${3:_{\\mathbf{x}}} \\cdot \\left( $1 ${4:\\mathbf{u}} \\right) $0
+endsnippet
+
+context "math()"
 snippet pder "partial derivative" wA
 \\frac{\\partial ${1:f}}{\\partial ${2:t}}$0
 endsnippet
@@ -375,6 +381,7 @@ snippet beg "begin{} / end{}" bA
 endsnippet
 
 priority 100
+context "math()"
 snippet ... "dots" iA
 \dots
 endsnippet
@@ -850,6 +857,11 @@ endsnippet
 context "math()"
 snippet RR "real" iA
 \mathbb{R}
+endsnippet
+
+context "math()"
+snippet R++ "real" iA
+\mathbb{R}^+
 endsnippet
 
 context "math()"
