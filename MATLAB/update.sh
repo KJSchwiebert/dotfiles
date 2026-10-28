@@ -22,6 +22,11 @@ else
     exit 65
 fi
 
+# On windows, where we are running this in WSL but mapping to a windows install
+# of MATLAB, we need to copy the files to the windows FS. Then, any time we
+# make changes, we will need to run this script again.
+#
+# There does not seem to be a good alternative for this use case.
 rm -rf "$1/overrides"
 rm -f "$1/startup.m"
 cp -r "$HOME/dotfiles/MATLAB/overrides" "$1/overrides"
